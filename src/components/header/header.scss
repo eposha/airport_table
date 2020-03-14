@@ -62,7 +62,12 @@
         }
 
         .search-btn {
-            min-width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 30px;
+            min-height: 80px;
+            min-width: 200px;
             font-size: 32px;
             color: #fff;
             background-color: rgb(30, 183, 238);

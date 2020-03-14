@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   activeButtonSelector,
   flightsListSelector
@@ -7,17 +8,16 @@ import {
 import * as flightsActions from "../../flights.actions";
 import "./button.scss";
 
-const Departures = ({ getFlightsList, isLoading, flightsList }) => {
+const Departures = ({ isLoading, flightsList }) => {
   let isActive = isLoading || flightsList.length < 1 ? "not-active" : "active";
 
   return (
-    <button
-      className={`departures-btn ${isActive} btn`}
-      onClick={() => getFlightsList("departure")}
-    >
-      <i className="fas fa-plane-departure"></i>
-      {"\u00A0"} <span> Departures</span>
-    </button>
+    <Link to="/departure">
+      <button className={`departures-btn ${isActive} btn`}>
+        <i className="fas fa-plane-departure"></i>
+        {"\u00A0"} <span> Departures</span>
+      </button>
+    </Link>
   );
 };
 

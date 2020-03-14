@@ -1,18 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { flightsListSelector, spinnerSelector } from "../../flights.selectors";
 import Spinner from "../../spinner/Spinner";
 import ItemsList from "../../itemsList/ItemsList";
+import * as flightsActions from "../../flights.actions";
 import "./tableList.scss";
+import qs from "qs";
 
-const TableList = ({ flights, isLoading }) => {
-  if (flights.length < 1) {
-    return null;
-  }
+const TableList = ({ getFlightsList, flights, isLoading }) => {
+  const { direction } = useParams();
+  const search = qs.parse(useLocation().search, { ignoreQueryPrefix: true })
+    .search;
+
+  useEffect(() => {
+    getFlightsList(direction);
+  }, [direction]);
 
   if (isLoading) {
     return <Spinner />;
   }
+
+  let allFlights = !search
+    ? flights
+    : flights.filter(flight => flight.codeShareData[0].codeShare === search);
+
+  const isFound =
+    allFlights.length < 1 ? (
+      <tr>
+        <th colSpan="7" className="not-found">
+          Not Found
+        </th>
+      </tr>
+    ) : (
+      <ItemsList data={allFlights} />
+    );
+
   return (
     <table className="flights-details">
       <thead className="table-head">
@@ -25,9 +48,7 @@ const TableList = ({ flights, isLoading }) => {
           <th>Flight</th>
         </tr>
       </thead>
-      <tbody className="table-body">
-        <ItemsList data={flights} />
-      </tbody>
+      <tbody className="table-body">{isFound}</tbody>
     </table>
   );
 };
@@ -37,4 +58,4 @@ const mapStateToProps = state => ({
   isLoading: spinnerSelector(state)
 });
 
-export default connect(mapStateToProps)(TableList);
+export default connect(mapStateToProps, flightsActions)(TableList);

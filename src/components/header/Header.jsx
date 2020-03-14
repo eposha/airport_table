@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import * as flightActions from "../flights.actions";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import "./header.scss";
 
 const Header = () => {
@@ -19,12 +22,18 @@ const Header = () => {
           onChange={() => setValue(event.target.value)}
           placeholder="Airline, destination, or flight #"
         />
-        <button className="search-btn" type="submit">
-          Search
-        </button>
+
+        <Link
+          to={`/departure?search=${searchValue}`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <button className="search-btn" type="submit">
+            Search
+          </button>
+        </Link>
       </form>
     </header>
   );
 };
 
-export default Header;
+export default connect(null, flightActions)(Header);

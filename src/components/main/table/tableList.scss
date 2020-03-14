@@ -13,11 +13,8 @@
             0 10px 10px rgba(0, 0, 0, 0.22);
     }
 
-
     .table-head {
         background-color: #fff;
-
-
     }
 
     .table-body {
@@ -27,7 +24,6 @@
             .details-item {
                 padding: 25px;
                 text-align: center;
-
             }
 
             &:nth-child(even) {
@@ -35,6 +31,10 @@
             }
         }
     }
+}
 
+;
 
+.not-found {
+    background-color: #fff;
 }
