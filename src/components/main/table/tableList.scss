@@ -1,0 +1,40 @@
+.flights-details {
+    padding: 0 50px;
+    width: 80vw;
+    border-spacing: 0;
+
+    th {
+        padding-top: 50px;
+        height: 100px;
+    }
+
+    .details-body:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+            0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    .table-head {
+        background-color: #fff;
+    }
+
+    .table-body {
+        background-color: #fff;
+
+        .details-body {
+            .details-item {
+                padding: 25px;
+                text-align: center;
+            }
+
+            &:nth-child(even) {
+                background-color: rgba(0, 102, 135, 0.1);
+            }
+        }
+    }
+}
+
+;
+
+.not-found {
+    background-color: #fff;
+}

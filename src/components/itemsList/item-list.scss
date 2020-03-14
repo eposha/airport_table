@@ -1,0 +1,30 @@
+.terminal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 40px;
+    width: 40px;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 50%;
+    border: 1px solid #63c745;
+    color: #63c745;
+
+    &.d {
+
+        border: 1px solid deepskyblue;
+        color: deepskyblue;
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & img {
+        height: 30px;
+        margin-right: 15px;
+    }
+}

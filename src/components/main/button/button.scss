@@ -1,0 +1,49 @@
+.not-active {
+    background-color: rgb(115, 210, 240);
+    border-radius: 60px 60px 0 0;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0;
+    border: 0;
+    font-weight: 600;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    outline: none;
+    z-index: 5;
+
+}
+
+.not-active:hover {
+    background-color: rgb(30, 183, 238);
+}
+
+.active {
+    background-color: #fff;
+    color: rgb(30, 183, 238);
+    border: none;
+    outline: none;
+    border-radius: 60px 60px 0 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    z-index: 10;
+}
+
+.btn {
+    height: 60px;
+    width: 40vw;
+    font-size: 24px;
+}
+
+.arrivals-btn {
+    position: relative;
+    right: 50px;
+}
+
+.departures-btn {
+    position: relative;
+    left: 50px;
+}
