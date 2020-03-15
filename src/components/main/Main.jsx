@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import ErrorBoundry from "../error-boundry/ErrorBoundry";
 import "./main.scss";
 import Arrivals from "./button/Arrivals";
 import Departures from "./button/Departures";
@@ -12,7 +13,9 @@ const Main = () => {
         <Departures />
         <Arrivals />
       </div>
-      <Route path="/:direction" component={TableList} />
+      <ErrorBoundry>
+        <Route path="/:direction" component={TableList} />
+      </ErrorBoundry>
     </section>
   );
 };
